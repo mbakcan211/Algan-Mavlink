@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<mavlink>
+    <include>development.xml</include>
+
+    <version>1</version>
+    <dialect>100</dialect>
+    <messages>
+
+	<message id="13000" name="RFD_TEST">
+		<description>RFD TEST MAVLINK PAKETI</description>
+		<field type="uint8_t" name="RANDOM_DEGER"/>
+	</message>
+
+    </messages>
+</mavlink>

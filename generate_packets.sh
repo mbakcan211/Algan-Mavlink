@@ -6,7 +6,7 @@ set -e
 # --- Configuration ---
 DIALECT_NAME="algan_uav"
 XML_DIR="../definitions"
-OUT_DIR="../generated"
+OUT_DIR=".."
 PROTOCOL="2.0"
 
 # --- Setup ---
@@ -35,7 +35,6 @@ else
         MAVGEN_CMD="python3 -m pymavlink.tools.mavgen"
     fi
 fi
-
 echo "[INFO] Using generator command: $MAVGEN_CMD"
 
 # Create output directories
@@ -61,5 +60,5 @@ $MAVGEN_CMD \
 echo "=========================================="
 echo "[SUCCESS] Generation Complete!"
 echo "Python file: $OUT_DIR/python/${DIALECT_NAME}.py"
-echo "C Headers:   $OUT_DIR/c_library/"
+echo "C Headers:   $OUT_DIR/mavlink_c_library_v2/"
 echo "=========================================="
