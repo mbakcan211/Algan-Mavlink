@@ -4,6 +4,7 @@
     messages: 11000 - 11999
     commands: 42000 - 42999
   -->
+  <include>algan_uav.xml</include>
   <include>ardupilotmega.xml</include>
   <!-- ASLUAV.xml range of IDs:
     messages: 8000 - 8999

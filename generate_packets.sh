@@ -4,7 +4,7 @@
 set -e
 
 # --- Configuration ---
-DIALECT_NAME="algan_uav"
+DIALECT_NAME="all"
 XML_DIR="message_definitions/v1.0"
 OUT_DIR=".."
 PROTOCOL="2.0"
@@ -36,6 +36,12 @@ else
     fi
 fi
 echo "[INFO] Using generator command: $MAVGEN_CMD"
+
+# Check if definition file exists
+if [ ! -f "$XML_DIR/${DIALECT_NAME}.xml" ]; then
+    echo "[ERROR] Definition file not found: $XML_DIR/${DIALECT_NAME}.xml"
+    exit 1
+fi
 
 # Create output directories
 mkdir -p "$OUT_DIR/mavlink_python_library_v2"

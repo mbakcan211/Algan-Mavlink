@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <mavlink>
-    <include>all.xml</include>
+    <include>common.xml</include>
 
     <version>1</version>
     <dialect>100</dialect>
