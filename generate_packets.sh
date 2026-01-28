@@ -5,7 +5,7 @@ set -e
 
 # --- Configuration ---
 DIALECT_NAME="algan_uav"
-XML_DIR="../definitions"
+XML_DIR="message_definitions/v1.0"
 OUT_DIR=".."
 PROTOCOL="2.0"
 
@@ -38,15 +38,15 @@ fi
 echo "[INFO] Using generator command: $MAVGEN_CMD"
 
 # Create output directories
-mkdir -p "$OUT_DIR/python"
-mkdir -p "$OUT_DIR/c_library"
+mkdir -p "$OUT_DIR/mavlink_python_library_v2"
+mkdir -p "$OUT_DIR/mavlink_c_library_v2"
 
 # --- 1. Generate Python Bindings ---
 echo "[INFO] Generating Python bindings..."
 $MAVGEN_CMD \
     --lang=Python \
     --wire-protocol=$PROTOCOL \
-    --output="$OUT_DIR/python/${DIALECT_NAME}.py" \
+    --output="$OUT_DIR/mavlink_python_library_v2/${DIALECT_NAME}.py" \
     "$XML_DIR/${DIALECT_NAME}.xml"
 
 # --- 2. Generate C Headers (for PX4/Embedded) ---
@@ -54,11 +54,11 @@ echo "[INFO] Generating C headers..."
 $MAVGEN_CMD \
     --lang=C \
     --wire-protocol=$PROTOCOL \
-    --output="$OUT_DIR/c_library" \
+    --output="$OUT_DIR/mavlink_c_library_v2" \
     "$XML_DIR/${DIALECT_NAME}.xml"
 
 echo "=========================================="
 echo "[SUCCESS] Generation Complete!"
-echo "Python file: $OUT_DIR/python/${DIALECT_NAME}.py"
+echo "Python file: $OUT_DIR/mavlink_python_library_v2/${DIALECT_NAME}.py"
 echo "C Headers:   $OUT_DIR/mavlink_c_library_v2/"
 echo "=========================================="
