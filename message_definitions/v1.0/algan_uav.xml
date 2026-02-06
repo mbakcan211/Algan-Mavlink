@@ -6,10 +6,36 @@
     <dialect>100</dialect>
     <messages>
 
-	<message id="13000" name="RFD_TEST">
-		<description>RFD TEST MAVLINK PAKETI</description>
-		<field type="uint8_t" name="RANDOM_DEGER"/>
-	</message>
+    <message id="13000" name="RFD_TEST">
+            <description>RFD TEST MAVLINK PAKETI</description>
+	        <field type="uint8_t" name="RANDOM_DEGER"/>
+    </message>
+
+    <message id="13001" name="LAST_ENEMY_POSITION">
+            <description>Last known GPS coordinates of the target enemy.</description>
+            <field type="uint8_t" name="target_system">System ID of the vehicle.</field>
+            <field type="uint8_t" name="target_component">Component ID of the vehicle.</field>
+            <field type="int32_t" name="lat" units="degE7">Latitude (WGS84)</field>
+            <field type="int32_t" name="lon" units="degE7">Longitude (WGS84)</field>
+            <field type="float" name="alt" units="m">Altitude (MSL)</field>
+    </message>
+
+    <message id="13002" name="DETECTED_ENEMY">
+            <description>Pixel coordinates of the detected enemy in the camera frame.</description>
+            <field type="uint16_t" name="pixel_x">X coordinate in pixels (front camera).</field>
+            <field type="uint16_t" name="pixel_y">Y coordinate in pixels (front camera).</field>
+            <field type="float" name="confidence">Detection confidence (0.0 to 1.0).</field>
+    </message>
+
+    <message id="13003" name="LOCKING_DONE">
+            <description>Indicates that a minimum of 4 seconds of stable detection is achieved.</description>
+            <field type="uint8_t" name="target_system">System ID.</field>
+            <field type="uint8_t" name="status">0: Searching, 1: Locked.</field>
+    </message>
+
+
+
+
 
     </messages>
 </mavlink>
