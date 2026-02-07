@@ -104,7 +104,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Production-ready MAVLink sender.')
 
     # Burada gerçek uçak için mavlink-router üzerinden sağlanacak portlar girilmeli.
-    parser.add_argument('--device', default='udpin:127.0.0.1:14550', help='Device path')
+    parser.add_argument('--device', default='udpin:127.0.0.1:32500', help='Device path')
     parser.add_argument('--baud', type=int, default=57600, help='Baud rate')
     parser.add_argument('--hz', type=float, default=10, help='Frequency in Hz')
     
