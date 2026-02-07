@@ -1,12 +1,16 @@
 import time
 import argparse
+import sys
+import os
 from pymavlink import mavutil
-from generated_build.python import algan_uav
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../mavlink_python_library_v2')))
+import all as algan_uav
 
 # Bu kod rfd_test mesajını tek seferlik kullanıcı girdisine göre gönderir.
 
 parser = argparse.ArgumentParser(description='Send custom MAVLink messages.')
-parser.add_argument('--device', default='udpin:127.0.0.1:14550', help='Device path (e.g., /dev/ttyUSB0) or connection string')
+parser.add_argument('--device', default='udpin:127.0.0.1:32500', help='Device path (e.g., /dev/ttyUSB0) or connection string')
 parser.add_argument('--baud', type=int, default=57600, help='Baud rate for serial connection')
 args = parser.parse_args()
 
