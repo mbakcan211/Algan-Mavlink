@@ -1,7 +1,12 @@
 import time
 import argparse
+import sys
+import os
 from pymavlink import mavutil
-from generated_build.python import algan_uav
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../mavlink_python_library_v2')))
+import all as algan_uav
+
 
 class AlganRfdTester:
     def __init__(self, device, baud, interval=0.1):
