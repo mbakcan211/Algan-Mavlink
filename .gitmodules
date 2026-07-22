@@ -1,3 +1,4 @@
 [submodule "message_definitions"]
 	path = message_definitions
 	url = https://github.com/mbakcan211/algan_message_definitions.git
+	branch = main
